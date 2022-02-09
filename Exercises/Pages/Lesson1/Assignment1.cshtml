@@ -5,16 +5,17 @@
     Layout = null;
 }
 
+
 <div>
     <p>
-        <span id="scoreHome">###</span> - <span id="scoreAway">###</span>
+        <span id="scoreHome">@Model.Home</span> - <span id="scoreAway">@Model.Away</span>
     </p>
     <div>
-        <a id="incrementHome" href="###">Home ++</a>
-        <a id="decrementHome" href="###">Home --</a>
+        <a id="incrementHome" href="?Home=@(Model.Home+1)">Home ++</a>
+        <a id="decrementHome" href="?Home=@(Model.Home-1)">Home --</a>
 
-        <a id="incrementAway" href="###">Away ++</a>
-        <a id="decrementAway" href="###">Away --</a>
+        <a id="incrementAway" href="?Away=@(Model.Away+1)">Away ++</a>
+        <a id="decrementAway" href="?Away=@(Model.Away-1)">Away --</a>
     </div>
     <div>
         <a id="reset" href="###">Reset</a>
