@@ -5,13 +5,23 @@
     Layout = null;
 }
 
+
 @{
-    string url = "?";
+    string urlHelp = "";
+    if (string.IsNullOrWhiteSpace(Request.QueryString.ToString()))
+    {
+        urlHelp = "?";
+    }
+    string url = urlHelp + @Request.QueryString.ToString();
+    
     //maak hier de juiste url
 }
 
 <a href="@url&directions=Left">Left</a>
-<!-- voeg zelf de andere richtingen toe -->
+<a href="@url&directions=Right">Right</a>
+<a href="@url&directions=Forward">Forward</a>
+<a href="@url&directions=Backward">Backward</a>
+
 
 <hr>
 <a href="?">Clear</a>
@@ -22,10 +32,26 @@
     {
         switch(direction)
         {
-            case Exercise2.Direction.Left: 
+            case Exercise2.Direction.Left:
+            {
                 <li>Left</li> 
-            break;
-            //voeg de andere richtingen toe!
+                break;
+            }
+            case Exercise2.Direction.Right:
+            {
+                <li>Right</li> 
+                break;
+            }
+            case Exercise2.Direction.Forward:
+            {
+                <li>Forward</li> 
+                break;
+            }
+            case Exercise2.Direction.Backward:
+            {
+                <li>Backward</li> 
+                break;
+            }
         } 
     }
 </ul>
